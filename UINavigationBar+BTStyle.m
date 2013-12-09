@@ -16,9 +16,12 @@
 //////////////////////////////////////////////////////////////////
 -(void)setBTBarColor:(UIColor*)color
 {
+    float h = 44;
+    if([[UIApplication sharedApplication] respondsToSelector:@selector(ignoreSnapshotOnNextApplicationLaunch)])
+        h = 66;
     CGFloat ranges[] = {0,1};
     [self setBackgroundImage:[UIImage imageWithColors:[NSArray arrayWithObjects:color,[color adjustColor:-0.12], nil]
-                                                                       ranges:ranges size:CGSizeMake(10, 44) cornerRadius:0]
+                                                                       ranges:ranges size:CGSizeMake(10, h) cornerRadius:0]
                                        forBarMetrics:UIBarMetricsDefault];
 }
 //////////////////////////////////////////////////////////////////
